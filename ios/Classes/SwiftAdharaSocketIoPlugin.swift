@@ -34,6 +34,11 @@ public class SwiftAdharaSocketIoPlugin: NSObject, FlutterPlugin {
                 if let enableLogging: Bool = arguments["enableLogging"] as? Bool {
                     config.enableLogging = enableLogging
                 }
+
+                if let path: String = arguments["path"] as? String {
+                                    config.path = path
+                                }
+
                 instances.append(AdharaSocket.getInstance(registrar, config))
                 result(newIndex)
             case "clearInstance":
