@@ -98,12 +98,14 @@ public class AdharaSocketIOClientConfig: NSObject{
     let uri:String
     public var query:[String:String]
     public var enableLogging:Bool
-    
+    public var path:String
+
     init(_ adharaId:Int, uri:String) {
         self.adharaId = adharaId
         self.uri = uri
         self.query = [String:String]()
         self.enableLogging = false
+        self.path = String()
     }
     
 }
