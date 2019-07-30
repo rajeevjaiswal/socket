@@ -17,6 +17,8 @@ class SocketOptions {
   ///Connection timeout (ms). Set -1 to disable.
   int timeout = 20000;
 
+  final String path;
+
 //  public boolean forceNew;
 //          /**
 //         * Whether to enable multiplexing. Default is true.
@@ -47,6 +49,7 @@ class SocketOptions {
   SocketOptions(this.uri, {
     this.query: const {},
     this.enableLogging: false,
+    this.path,
     this.transports: const [Transports.WEB_SOCKET, Transports.POLLING]
   });
 
@@ -55,6 +58,7 @@ class SocketOptions {
       "uri": uri,
       "query": query,
       "enableLogging": enableLogging,
+      "path": path,
       "transports": transports.map((Transports t){
         return {
           Transports.WEB_SOCKET: "websocket",
