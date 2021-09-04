@@ -72,7 +72,17 @@ public class AdharaSocket: NSObject, FlutterPlugin {
                 let eventName: String = arguments["eventName"] as! String
                 let data: [Any] = arguments["arguments"] as! [Any]
                 self.log("emitting:::", data, ":::to:::", eventName);
-                socket.emit(eventName, with: data)
+                socket.emit(eventName, with: data){ result in
+                            switch result{
+                            case .success:
+                                result(nil)
+                            case .failure(let error): //Tried emitting when not connected
+                                result(nil)
+
+                            }
+                        }
+                    }
+//                socket.emit(eventName, with: data)
                 result(nil)
             case "isConnected":
                 self.log("connected")
