@@ -81,7 +81,6 @@ public class AdharaSocket: NSObject, FlutterPlugin {
 
                             }
                         }
-                    }
 //                socket.emit(eventName, with: data)
                 result(nil)
             case "isConnected":
